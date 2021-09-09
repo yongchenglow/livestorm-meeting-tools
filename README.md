@@ -1,13 +1,86 @@
+# Livestorm Meeting Tools
 
-<img src="https://raw.githubusercontent.com/livestorm/livestorm-plugin-cli/master/src/assets/sdk-header.png" width="500px">
+This repository contains the code for Livestorm Meeting Tools. It was created as a project for the Livestorm hackathon, so I apologise in advance if the code is a bit messy
 
-Take your events to the next level with Livestorm plugins, a powerful SDK designed to let you build amazing experiences, on top of a platform you already love.
+## Table of Contents
 
-Our APIs make it easy to create complex live interactions. Messaging, websockets, WebRTC, let us worry about complex stuff, focus on the plugin experience.
+1. [Introduction](#introduction)
+2. [Running the code](#running-the-code)
+3. [File Structure](#file-structure)
+4. [Linting Rules](#linting-rules)
+5. [Acknowledgements](#acknowledgements)
+6. [License](#license)
 
-Plugins is the best way to create powerful live integrations and interactions with 3rd party services you already use !
+## Introduction
 
-Get started building your own plugins and leverage the power of livestorm or discover our API QuickStart Guides.
+This plugin adds meeting tools to your Livestorm Events:
 
-[<img src="https://raw.githubusercontent.com/livestorm/livestorm-plugin-cli/master/src/assets/docs-link.png" width="120px">](https://developers.livestorm.co/docs/getting-started-with-plugins-sdk/)
+1. Select a random group
+2. Timer (Countdown and Countup)
+3. Scrum Master (Digital Assistant)
 
+## Running the code
+
+Whenever you want to try your plugin or publish it for good, simply run :
+
+```
+livestorm publish
+```
+
+This will publish your plugin based on the API token you set in the environments.json
+
+In the development phase it is advised that you use the watch command that allows iterate much faster.
+
+```
+livestorm watch
+```
+
+## File Structure
+
+```
+Livestorm Meeting Tools
+├── src
+│    ├── components
+│    ├── helper
+│    ├── images
+│    ├── main
+│    └── App.ts
+├── dangerfile.ts
+└── index.ts
+```
+
+## Linting Rules
+
+### File Structure
+
+To be written in the following manner:
+
+1. Folder lowerCamelCase
+2. Files UpperCamelCase
+
+### Git Branches
+
+Pick between:
+
+1. feature/{feature description}
+2. fix/{fix description}
+
+### Commits
+
+1st line of a commit should not be longer than 72 characters
+
+1st line of commit should be of the following sctructure:
+
+```
+<keyword>: <commit details>
+```
+
+keywords should be taken from the dangerfile.ts
+
+## Acknowledgements
+
+1. This project was created using the [Livestorm SDK](https://developers.livestorm.co/docs/getting-started-with-plugins-sdk) please refer to their docs for more information
+
+## License
+
+[MIT License](./LICENSE)
