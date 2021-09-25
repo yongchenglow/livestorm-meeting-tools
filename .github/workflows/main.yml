@@ -20,10 +20,11 @@ test:
       
     - name: yarn install, build, and test
       run: |
-      yarn install
-      yarn build
-      yarn test
+        yarn install
+        yarn build
+        yarn test
       
     - name: Danger
       run: yarn danger ci
-      env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
