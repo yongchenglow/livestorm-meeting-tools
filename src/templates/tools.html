@@ -544,7 +544,10 @@
           }
 
           // document.getElementById('randomOrGroup').innerHTML = randomPeople;
-          postMessage({ action: 'random', value: randomPeople });
+          postMessage({
+            action: 'random',
+            value: JSON.stringify(randomPeople),
+          });
         } else {
           let groups = [];
           let team = [];
@@ -579,7 +582,7 @@
           //   }
           // }
           // document.getElementById('randomOrGroup').innerHTML = string;
-          postMessage({ action: 'group', value: groups });
+          postMessage({ action: 'group', value: JSON.stringify(groups) });
         }
         closeModal();
         // https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
@@ -652,7 +655,7 @@
             minute2 * 600 +
             hour1 * 3600 +
             hour2 * 36000;
-          postMessage({ action: 'timer', value: secondsTotal });
+          postMessage({ action: 'timer', value: secondsTotal.toString() });
           closeModal();
         });
 
