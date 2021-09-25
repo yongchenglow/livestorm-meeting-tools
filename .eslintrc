@@ -12,5 +12,7 @@
   },
   "rules": {
     "semi": "error"
-  }
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": []
 }
