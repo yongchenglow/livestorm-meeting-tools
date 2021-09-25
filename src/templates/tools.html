@@ -1,0 +1,763 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/livestorm/livestorm-plugin/dist/assets/css/style.css"
+    />
+    <style>
+      body {
+        padding: 20px;
+        height: 350px;
+      }
+
+      .button-width {
+        min-width: 50px;
+        width: 100%;
+        max-width: 200px;
+        align-items: center;
+      }
+
+      .scrum-master-button-width {
+        min-width: 80px;
+        width: 100%;
+        max-width: 430px;
+        align-items: center;
+      }
+
+      .text-left {
+        text-align: left !important;
+      }
+
+      .text-right {
+        text-align: right !important;
+      }
+
+      .text-center {
+        text-align: center !important;
+      }
+
+      .float-left {
+        float: left !important;
+      }
+
+      .float-right {
+        float: right !important;
+      }
+
+      .float-none {
+        float: none !important;
+      }
+
+      .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+
+      .col {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+
+      .auto-height {
+        height: 200px;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        width: 50px;
+        padding-left: 5px;
+        padding-top: 2px;
+      }
+
+      .option-button {
+        display: inline-block;
+        min-width: 50px;
+      }
+
+      .option-text {
+        margin-top: -2px;
+      }
+
+      .width-200 {
+        width: 200px;
+      }
+
+      .max-width-80 {
+        max-width: 80px;
+      }
+
+      .max-width-50 {
+        max-width: 50px;
+      }
+
+      .in-line {
+        display: inline-block;
+      }
+
+      .ls-form {
+        display: block;
+      }
+
+      .item-center {
+        margin: auto;
+      }
+
+      .time-number-input {
+        padding-right: 0px !important;
+      }
+
+      .button-text {
+        margin-top: -30px;
+        font-size: 20px;
+      }
+      .button-icon {
+        margin-top: 15px;
+        font-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="back" class="ls-button ls-button-secondary back-button">
+        <div class="ls-text-16-regular">🔙</div>
+      </button>
+      <div id="title" class="ls-text-32-regular ls-mb-4 ls-center">
+        Meeting Tools
+      </div>
+    </div>
+    <div id="home-section" style="margin-top: 30px">
+      <div class="row ls-mb-3">
+        <div class="col">
+          <button
+            id="random"
+            class="
+              ls-button ls-button-secondary
+              auto-height
+              button-width
+              float-right
+            "
+          >
+            <div class="text-center button-text">Random</div>
+            <div class="text-center button-icon">🎲</div>
+          </button>
+        </div>
+        <div class="col">
+          <button
+            id="timer"
+            class="ls-button ls-button-secondary auto-height button-width"
+          >
+            <div class="text-center button-text">Timer</div>
+            <div class="text-center button-icon">⏱️</div>
+          </button>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col">
+          <div class="ls-center">
+            <button
+              id="scrum"
+              class="
+                ls-button ls-button-secondary
+                auto-height
+                scrum-master-button-width
+              "
+            >
+              <div class="text-center">
+                <span class="ls-mr-1">👩‍🔧 </span><span>Scrum Master</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div id="random-group" style="margin-top: 60px">
+      <div id="random-section" class="text-center ls-mb-7">
+        <div class="in-line">
+          <div class="ls-text-24-semibold">Pick</div>
+        </div>
+        <div class="in-line ls-ml-6 ls-mr-6">
+          <button
+            id="rand1"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">1</div>
+          </button>
+          <button
+            id="rand2"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">2</div>
+          </button>
+          <button
+            id="rand3"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">3</div>
+          </button>
+          <button
+            id="rand4"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">4</div>
+          </button>
+          <button
+            id="rand5"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">5</div>
+          </button>
+        </div>
+      </div>
+      <div id="group-section" class="text-center">
+        <div class="in-line">
+          <div class="ls-text-24-semibold">Group</div>
+        </div>
+        <div class="in-line ls-ml-3 ls-mr-6">
+          <button
+            id="group2"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">2</div>
+          </button>
+          <button
+            id="group3"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">3</div>
+          </button>
+          <button
+            id="group4"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">4</div>
+          </button>
+          <button
+            id="group5"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">5</div>
+          </button>
+          <button
+            id="group6"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">6</div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div id="randomOrGroup"></div>
+    </div>
+    <div id="count-down" class="text-center">
+      <div class="ls-text-20-regular ls-mb-3">Count Down</div>
+      <form class="ls-form">
+        <div class="ls-mb-5">
+          <input
+            id="hour2"
+            class="ls-input max-width-50 in-line text-center time-number-input"
+            type="number"
+            min="0"
+            max="2"
+            value="0"
+          />
+          <input
+            id="hour1"
+            class="ls-input max-width-50 in-line text-center time-number-input"
+            type="number"
+            min="0"
+            max="4"
+            value="0"
+          />
+          <span class="ls-text-20-regular">:</span>
+          <input
+            id="minute2"
+            class="ls-input max-width-50 in-line text-center time-number-input"
+            type="number"
+            min="0"
+            max="5"
+            value="1"
+          />
+          <input
+            id="minute1"
+            class="ls-input max-width-50 in-line text-center time-number-input"
+            type="number"
+            min="0"
+            max="9"
+            value="5"
+          />
+          <span class="ls-text-20-regular">:</span>
+          <input
+            id="second2"
+            class="ls-input max-width-50 in-line text-center time-number-input"
+            type="number"
+            min="0"
+            max="5"
+            value="0"
+          />
+          <input
+            id="second1"
+            class="ls-input max-width-50 in-line text-center time-number-input"
+            type="number"
+            min="0"
+            max="9"
+            value="0"
+          />
+        </div>
+        <div class="ls-mb-7">
+          <button
+            id="startTimer"
+            class="ls-button ls-button-secondary item-center width-200"
+            type="button"
+          >
+            <div class="text-center option-text">Start</div>
+          </button>
+        </div>
+        <div>
+          <button
+            id="minus10"
+            type="button"
+            class="ls-button ls-button-red-secondary option-button"
+          >
+            <div class="option-text">-10m</div>
+          </button>
+          <button
+            id="minus5"
+            type="button"
+            class="ls-button ls-button-red-secondary option-button"
+          >
+            <div class="option-text">-5m</div>
+          </button>
+          <button
+            id="plus5"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">+5m</div>
+          </button>
+          <button
+            id="plus10"
+            type="button"
+            class="ls-button ls-button-green-secondary option-button"
+          >
+            <div class="option-text">+10m</div>
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- <div>
+      <div id="countdownExample">
+        <div class="values"></div>
+      </div>
+    </div> -->
+    <script>
+      // var participants = JSON.parse('{{ participants }}');
+      var participants = [
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '13',
+        '14',
+        '15',
+      ];
+      const home = 'home';
+      const random = 'random';
+      const timer = 'timer';
+      const scrum = 'scrum';
+      const title = 'title';
+      const content = 'content';
+      const back = 'back';
+
+      var pageSequence = [];
+      var currentPage = home;
+
+      var homePage = {
+        name: home,
+        title: 'Meeting Tools',
+        content: 'home-section',
+        backButton: 'none',
+      };
+
+      var randomPage = {
+        name: random,
+        title: '🎲 Random',
+        content: 'random-group',
+        backButton: 'block',
+      };
+
+      var timerPage = {
+        name: timer,
+        title: '⏱️ Timer',
+        content: 'count-down',
+        backButton: 'block',
+      };
+
+      // var scrumPage = {
+      //   name: scrum,
+      //   title: '👩‍🔧 Scrum Master',
+      //   content: '',
+      //   backButton: 'block',
+      // };
+
+      setCurrentPage(home);
+
+      if (participants.length < 2) {
+        document.getElementById('rand2').style.display = 'none';
+        document.getElementById('rand3').style.display = 'none';
+        document.getElementById('rand4').style.display = 'none';
+        document.getElementById('rand5').style.display = 'none';
+        document.getElementById('group-section').style.display = 'none';
+      } else if (participants.length < 3) {
+        document.getElementById('rand2').style.display = 'none';
+        document.getElementById('rand3').style.display = 'none';
+        document.getElementById('rand4').style.display = 'none';
+        document.getElementById('rand5').style.display = 'none';
+        document.getElementById('group-section').style.display = 'none';
+      } else if (participants.length < 4) {
+        document.getElementById('rand3').style.display = 'none';
+        document.getElementById('rand4').style.display = 'none';
+        document.getElementById('rand5').style.display = 'none';
+        document.getElementById('group3').style.display = 'none';
+        document.getElementById('group4').style.display = 'none';
+        document.getElementById('group5').style.display = 'none';
+        document.getElementById('group6').style.display = 'none';
+      } else if (participants.length < 5) {
+        document.getElementById('rand4').style.display = 'none';
+        document.getElementById('rand5').style.display = 'none';
+        document.getElementById('group4').style.display = 'none';
+        document.getElementById('group5').style.display = 'none';
+        document.getElementById('group6').style.display = 'none';
+      } else if (participants.length < 6) {
+        document.getElementById('rand5').style.display = 'none';
+        document.getElementById('group5').style.display = 'none';
+        document.getElementById('group6').style.display = 'none';
+      } else if (participants.length < 7) {
+        document.getElementById('group6').style.display = 'none';
+      }
+
+      document.getElementById(random).addEventListener('click', function () {
+        addCurrentPageToStack(random);
+        setCurrentPage(random);
+      });
+
+      document.getElementById(timer).addEventListener('click', function () {
+        addCurrentPageToStack(timer);
+        setCurrentPage(timer);
+      });
+
+      // document.getElementById(scrum).addEventListener('click', function () {
+      //   addCurrentPageToStack(scrum);
+      //   setCurrentPage(scrum);
+      // });
+
+      document.getElementById(back).addEventListener('click', function () {
+        removeCurrentPageToStack();
+      });
+
+      document.getElementById('rand1').addEventListener('click', function () {
+        randomOrGroup(1, 'pick');
+      });
+
+      document.getElementById('rand2').addEventListener('click', function () {
+        randomOrGroup(2, 'pick');
+      });
+
+      document.getElementById('rand3').addEventListener('click', function () {
+        randomOrGroup(3, 'pick');
+      });
+
+      document.getElementById('rand4').addEventListener('click', function () {
+        randomOrGroup(4, 'pick');
+      });
+
+      document.getElementById('rand5').addEventListener('click', function () {
+        randomOrGroup(5, 'pick');
+      });
+
+      document.getElementById('group2').addEventListener('click', function () {
+        randomOrGroup(2, 'group');
+      });
+
+      document.getElementById('group3').addEventListener('click', function () {
+        randomOrGroup(3, 'group');
+      });
+
+      document.getElementById('group4').addEventListener('click', function () {
+        randomOrGroup(4, 'group');
+      });
+
+      document.getElementById('group5').addEventListener('click', function () {
+        randomOrGroup(5, 'group');
+      });
+
+      document.getElementById('group6').addEventListener('click', function () {
+        randomOrGroup(6, 'group');
+      });
+
+      function randomOrGroup(num, type) {
+        let temp = [...participants];
+        if (type == 'pick') {
+          let randomPeople = [];
+          while (randomPeople.length < num) {
+            // Pick a person
+            let person = pickRandom(temp);
+            randomPeople.push(person);
+
+            // Remove Person
+            let index = temp.indexOf(person);
+            if (index > -1) {
+              temp.splice(index, 1);
+            }
+          }
+
+          // document.getElementById('randomOrGroup').innerHTML = randomPeople;
+          postMessage({ action: 'random', value: randomPeople });
+        } else {
+          let groups = [];
+          let team = [];
+          while (temp.length > 0) {
+            // Pick a person
+            let person = pickRandom(temp);
+            team.push(person);
+
+            // Remove Person
+            let index = temp.indexOf(person);
+            if (index > -1) {
+              temp.splice(index, 1);
+            }
+
+            // Check if team is full
+            if (team.length == num) {
+              groups.push(team);
+              team = [];
+            }
+          }
+
+          if (team.length > 0) {
+            groups.push(team);
+          }
+
+          // let string = '';
+          // for (let i = 0; i < groups.length; i++) {
+          //   if (i != groups.length - 1) {
+          //     string += groups[i] + ' | ';
+          //   } else {
+          //     string += groups[i];
+          //   }
+          // }
+          // document.getElementById('randomOrGroup').innerHTML = string;
+          postMessage({ action: 'group', value: groups });
+        }
+        closeModal();
+        // https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array
+        function pickRandom(array) {
+          return array[Math.floor(Math.random() * array.length)];
+        }
+      }
+
+      document.getElementById('minus10').addEventListener('click', function () {
+        computeTime(-10);
+      });
+
+      document.getElementById('minus5').addEventListener('click', function () {
+        computeTime(-5);
+      });
+
+      document.getElementById('plus5').addEventListener('click', function () {
+        computeTime(5);
+      });
+
+      document.getElementById('plus10').addEventListener('click', function () {
+        computeTime(10);
+      });
+
+      document.getElementById('hour2').addEventListener('change', function () {
+        disableCheck();
+      });
+
+      document.getElementById('hour1').addEventListener('change', function () {
+        disableCheck();
+      });
+
+      document
+        .getElementById('minute2')
+        .addEventListener('change', function () {
+          disableCheck();
+        });
+
+      document
+        .getElementById('minute1')
+        .addEventListener('change', function () {
+          disableCheck();
+        });
+
+      document
+        .getElementById('second2')
+        .addEventListener('change', function () {
+          disableCheck();
+        });
+
+      document
+        .getElementById('second1')
+        .addEventListener('change', function () {
+          disableCheck();
+        });
+
+      document
+        .getElementById('startTimer')
+        .addEventListener('click', function () {
+          var hour2 = parseInt(document.getElementById('hour2').value);
+          var hour1 = parseInt(document.getElementById('hour1').value);
+          var minute2 = parseInt(document.getElementById('minute2').value);
+          var minute1 = parseInt(document.getElementById('minute1').value);
+          var second2 = parseInt(document.getElementById('second2').value);
+          var second1 = parseInt(document.getElementById('second1').value);
+          var secondsTotal =
+            second1 +
+            second2 * 10 +
+            minute1 * 60 +
+            minute2 * 600 +
+            hour1 * 3600 +
+            hour2 * 36000;
+          postMessage({ action: 'timer', value: secondsTotal });
+          closeModal();
+        });
+
+      function computeTime(num) {
+        var hour2 = parseInt(document.getElementById('hour2').value);
+        var hour1 = parseInt(document.getElementById('hour1').value);
+        var minute2 = parseInt(document.getElementById('minute2').value);
+        var minute1 = parseInt(document.getElementById('minute1').value);
+        if (minute1 + num > 9) {
+          document.getElementById('minute1').value = minute1 + num - 10;
+          if (minute2 < 5) {
+            document.getElementById('minute2').value = minute2 + 1;
+          } else {
+            if (hour1 < 9) {
+              document.getElementById('hour1').value = hour1 + 1;
+              document.getElementById('minute2').value = 0;
+            } else {
+              document.getElementById('hour2').value = hour2 + 1;
+              document.getElementById('hour1').value = 0;
+              document.getElementById('minute2').value = 0;
+            }
+          }
+        } else if (minute1 + num < 0) {
+          if (minute2 > 0) {
+            document.getElementById('minute2').value = minute2 - 1;
+            document.getElementById('minute1').value = minute1 + num + 10;
+          } else if (hour1 > 0) {
+            document.getElementById('hour1').value = hour1 - 1;
+            document.getElementById('minute2').value = 5;
+            document.getElementById('minute1').value = minute1 + num + 10;
+          } else if (hour2 > 0) {
+            document.getElementById('hour2').value = hour2 - 1;
+            document.getElementById('hour1').value = 9;
+            document.getElementById('minute2').value = 5;
+            document.getElementById('minute1').value = minute1 + num + 10;
+          }
+        } else {
+          document.getElementById('minute1').value = minute1 + num;
+        }
+        disableCheck();
+      }
+
+      function disableCheck() {
+        var hour2 = parseInt(document.getElementById('hour2').value);
+        var hour1 = parseInt(document.getElementById('hour1').value);
+        var minute2 = parseInt(document.getElementById('minute2').value);
+        var minute1 = parseInt(document.getElementById('minute1').value);
+        var second2 = parseInt(document.getElementById('second2').value);
+        var second1 = parseInt(document.getElementById('second1').value);
+
+        if (
+          hour2 == 0 &&
+          hour1 == 0 &&
+          minute2 == 0 &&
+          minute1 == 0 &&
+          second2 == 0 &&
+          second1 == 0
+        ) {
+          document.getElementById('startTimer').disabled = true;
+        } else {
+          if (document.getElementById('startTimer').disabled) {
+            document.getElementById('startTimer').disabled = false;
+          }
+        }
+      }
+
+      function addCurrentPageToStack(nextPage) {
+        pageSequence.push(currentPage);
+        currentPage = nextPage;
+      }
+
+      function removeCurrentPageToStack() {
+        if (currentPage != home && pageSequence.length > 0) {
+          currentPage = pageSequence.pop();
+          setCurrentPage(currentPage);
+        }
+      }
+
+      function setCurrentPage(page) {
+        let changeToPage = null;
+        switch (page) {
+          case home:
+            changeToPage = homePage;
+            break;
+          case random:
+            changeToPage = randomPage;
+            break;
+          case timer:
+            changeToPage = timerPage;
+            break;
+          // case scrum:
+          //   changeToPage = scrumPage;
+          //   break;
+        }
+
+        if (changeToPage != null) {
+          document.getElementById('home-section').style.display = 'none';
+          document.getElementById('random-group').style.display = 'none';
+          document.getElementById('count-down').style.display = 'none';
+
+          document.getElementById(title).innerText = changeToPage.title;
+          document.getElementById(changeToPage.content).style.display = 'block';
+          document.getElementById(back).style.display = changeToPage.backButton;
+        }
+      }
+    </script>
+  </body>
+</html>
