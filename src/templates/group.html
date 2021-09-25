@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/livestorm/livestorm-plugin/dist/assets/css/style.css"
+    />
+    <style type="text/css">
+      body {
+        height: 300px;
+        width: 200px;
+        background: transparent;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        height: 300px;
+        width: 200px;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        text-align: center !important;
+      }
+
+      .present {
+        margin-top: 10px;
+        font-size: 80px;
+        animation: shake 0.5s;
+        animation-iteration-count: 5;
+      }
+
+      .container {
+        animation: 3s ease 0s normal forwards 1 fadeout;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translate(1px, 1px) rotate(0deg);
+        }
+        10% {
+          transform: translate(-1px, -2px) rotate(-1deg);
+        }
+        20% {
+          transform: translate(-3px, 0px) rotate(1deg);
+        }
+        30% {
+          transform: translate(3px, 2px) rotate(0deg);
+        }
+        40% {
+          transform: translate(1px, -1px) rotate(1deg);
+        }
+        50% {
+          transform: translate(-1px, 2px) rotate(-1deg);
+        }
+        60% {
+          transform: translate(-3px, 1px) rotate(0deg);
+        }
+        70% {
+          transform: translate(3px, 1px) rotate(-1deg);
+        }
+        80% {
+          transform: translate(-1px, -1px) rotate(1deg);
+        }
+        90% {
+          transform: translate(1px, 2px) rotate(0deg);
+        }
+        100% {
+          transform: translate(1px, -2px) rotate(-1deg);
+        }
+      }
+
+      @keyframes fadeout {
+        0% {
+          opacity: 1;
+        }
+        66% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .chosen {
+        font-size: 16px;
+      }
+
+      .margin-top {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div id="title" class="ls-text-16-semibold">
+        Selecting 3 random people
+      </div>
+      <div id="content">
+        <div class="container">
+          <div class="present">🎁</div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var participants = JSON.parse('{{ value }}');
+      // var participants = ['1', '2', '3'];
+      document.getElementById('title').innerHTML = 'Selecting Groups';
+
+      setTimeout(function () {
+        let string = '<div class="margin-top">';
+        for (let i = 0; i < participants.length; i++) {
+          string +=
+            '<div class="chosen"> Group ' +
+            (i + 1) +
+            ': ' +
+            participants[i] +
+            '</div>';
+        }
+        string += '</div>';
+        document.getElementById('content').innerHTML = string;
+      }, 3000);
+    </script>
+  </body>
+</html>

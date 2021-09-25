@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/livestorm/livestorm-plugin/dist/assets/css/style.css"
+    />
+    <style type="text/css">
+      body {
+        height: 120px;
+        width: 200px;
+        background: transparent;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        height: 120px;
+        width: 200px;
+        padding: 20px;
+        background: white;
+        border-radius: 15px;
+        text-align: center !important;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.3/src/easytimer.min.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div id="title" class="ls-text-20-regular ls-mb-1">⏱️ Countdown</div>
+      <div id="content">
+        <div id="countdownExample">
+          <div class="values ls-text-20-semibold"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var secondsTotal = JSON.parse('{{ value }}');
+      // var secondsTotal = 3600;
+      var countDownTimer = new Timer();
+      countDownTimer.start({
+        countdown: true,
+        startValues: { seconds: secondsTotal },
+        precision: 'secondTenths',
+      });
+      $('#countdownExample .values').html(
+        countDownTimer
+          .getTimeValues()
+          .toString(['hours', 'minutes', 'seconds', 'secondTenths']),
+      );
+      countDownTimer.addEventListener('secondTenthsUpdated', function (e) {
+        $('#countdownExample .values').html(
+          countDownTimer
+            .getTimeValues()
+            .toString(['hours', 'minutes', 'seconds', 'secondTenths']),
+        );
+      });
+      countDownTimer.addEventListener('targetAchieved', function (e) {
+        $('#countdownExample .values').html('Times Up!!!');
+      });
+    </script>
+  </body>
+</html>
