@@ -8,6 +8,10 @@ const rules = {
     [
       // Modules
       "Init",
+      "Release",
+      "Timer",
+      "Random",
+      "Assistant",
     ],
   ],
 };
