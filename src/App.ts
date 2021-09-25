@@ -1,11 +1,5 @@
-import Livestorm from '@livestorm/plugin'
+import { MeetingTools } from './main/MeetingTools';
 
-export default function() {
-  Livestorm.PubSub.subscribe('hello', ({ message }) => {
-    console.log(`Someone said : ${message}`)
-  })
-
-  Livestorm.PubSub.publish('hello', {
-    data: { message: 'Hello World' }
-  })
+export default function () {
+  MeetingTools();
 }
