@@ -20,6 +20,9 @@ jobs:
           yarn build
           yarn test
           
+      - name: yarn betterer
+        run: yarn betterer
+          
       - name: "Use npx to run the dangerfile"
         run: "npx danger-ts"
         env:
