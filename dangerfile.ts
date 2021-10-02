@@ -1,5 +1,4 @@
 import { message, danger, warn } from "danger";
-import spellcheck from "danger-plugin-spellcheck";
 import lint from "@commitlint/lint";
 import { commitRules } from "./commitlint.config";
 
@@ -40,9 +39,6 @@ for (const commit of danger.git.commits) {
     }
   });
 }
-
-// Spell Check for all ReadMe files
-spellcheck();
 
 // Update yarn.lock
 const packageChanged = danger.git.modified_files.includes("package.json");
