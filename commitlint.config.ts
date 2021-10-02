@@ -21,9 +21,9 @@ export const commitRules: QualifiedRules = {
   ],
 };
 
-const Configuration: UserConfig = {
+const configuration: UserConfig = {
   extends: ["@commitlint/config-conventional"],
   rules: commitRules,
 };
 
-module.exports = Configuration;
+module.exports = configuration;
