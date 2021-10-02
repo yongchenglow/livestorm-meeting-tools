@@ -6,6 +6,6 @@
     "sourceMap": true,
     "outDir": "./build"
   },
-  "include": ["index.ts"],
+  "include": ["index.ts", "danger.ts"],
   "exclude": ["node_modules", "__tests__"]
 }
