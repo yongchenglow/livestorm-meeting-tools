@@ -19,3 +19,8 @@ jobs:
           yarn install
           yarn build
           yarn test
+          
+      - name: "Use npx to run the dangerfile"
+        run: "npx danger-ts"
+        env:
+          GITHUB_TOKEN: ${{ secrets.DANGER_TOKEN }}
