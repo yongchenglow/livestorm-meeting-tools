@@ -1,7 +1,7 @@
 import { NotificationCenter } from '@livestorm/plugin';
 
-export async function TimerNotification(value) {
-  var newValue = value;
+export async function TimerNotification(value: string) {
+  var newValue: number = parseInt(value);
   NotificationCenter.showIframe(require('../templates/timer.html').default, {
     value: newValue,
   });
@@ -9,7 +9,6 @@ export async function TimerNotification(value) {
     if (newValue - 5 > 0) {
       newValue -= 5;
     } else {
-      
       clearInterval(interval);
     }
     NotificationCenter.showIframe(require('../templates/timer.html').default, {

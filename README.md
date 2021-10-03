@@ -38,12 +38,11 @@ livestorm watch
 ## File Structure
 
 ```
-Livestorm Meeting Tools
+Livestorm-Meeting-Tools
 ├── src
 │    ├── components
-│    ├── helper
-│    ├── images
 │    ├── main
+│    ├── templates
 │    └── App.ts
 ├── dangerfile.ts
 └── index.ts
@@ -75,11 +74,13 @@ Pick between:
 <keyword>: <commit details>
 ```
 
-keywords should be taken from the dangerfile.ts
+keywords should be taken from the commitlint.config.js
 
 ## Acknowledgements
 
 1. This project was created using the [Livestorm SDK](https://developers.livestorm.co/docs/getting-started-with-plugins-sdk) please refer to their docs for more information
+2. Commit Lint setup was done with the help of [commitlint](https://commitlint.js.org/#/)
+3. Betterer setup was done with the help of [betterer](https://phenomnomnominal.github.io/betterer/docs/running-betterer/)
 
 ## License
 

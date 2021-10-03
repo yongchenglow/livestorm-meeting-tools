@@ -4,8 +4,8 @@ import { PublishMessage } from './PublishMessage';
 import { ChatBroadcast } from './ChatBroadcast';
 
 export async function ToolsModal() {
-  AllParticipants().then((participants) => {
-    var participantNames = [];
+  AllParticipants().then((participants: any[]) => {
+    var participantNames: string[] = [];
     for (let i = 0; i < participants.length; i++) {
       if (participants[i].is_connected) {
         participantNames.push(
@@ -17,7 +17,7 @@ export async function ToolsModal() {
       template: require('../templates/tools.html').default, // Reference to the html template
       variables: { participants: participantNames }, // This content will be passed into the modal
       size: 'normal',
-      onMessage: ({ action, value }) => {
+      onMessage: ({ action, value }: any) => {
         PublishMessage(action, value);
         if (action == 'random') {
           setTimeout(function () {
