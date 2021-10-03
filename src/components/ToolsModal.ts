@@ -45,13 +45,6 @@ export async function ToolsModal() {
             ChatBroadcast('Groupings: ', html);
           }, 3000);
         }
-
-        // this.sendMessage({ message: 1 });
-        // if (message === 'getUsers') {
-        // }
-        // AllParticipants().then((participants) => console.log(participants));
-        // Me().then((me) => console.log(me));
-        // TeamMembers().then((teamMembers) => console.log(teamMembers));
       }, // We can receive messages from the template through here
     });
   });

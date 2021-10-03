@@ -165,24 +165,6 @@
           </button>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col">
-          <div class="ls-center">
-            <button
-              id="scrum"
-              class="
-                ls-button ls-button-secondary
-                auto-height
-                scrum-master-button-width
-              "
-            >
-              <div class="text-center">
-                <span class="ls-mr-1">👩‍🔧 </span><span>Scrum Master</span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div> -->
     </div>
     <div id="random-group" style="margin-top: 60px">
       <div id="random-section" class="text-center ls-mb-7">
@@ -369,30 +351,8 @@
         </div>
       </form>
     </div>
-    <!-- <div>
-      <div id="countdownExample">
-        <div class="values"></div>
-      </div>
-    </div> -->
     <script>
-      // var participants = JSON.parse('{{ participants }}');
-      var participants = [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        '11',
-        '12',
-        '13',
-        '14',
-        '15',
-      ];
+      var participants = JSON.parse('{{ participants }}');
       const home = 'home';
       const random = 'random';
       const timer = 'timer';
@@ -424,13 +384,6 @@
         content: 'count-down',
         backButton: 'block',
       };
-
-      // var scrumPage = {
-      //   name: scrum,
-      //   title: '👩‍🔧 Scrum Master',
-      //   content: '',
-      //   backButton: 'block',
-      // };
 
       setCurrentPage(home);
 
@@ -477,11 +430,6 @@
         addCurrentPageToStack(timer);
         setCurrentPage(timer);
       });
-
-      // document.getElementById(scrum).addEventListener('click', function () {
-      //   addCurrentPageToStack(scrum);
-      //   setCurrentPage(scrum);
-      // });
 
       document.getElementById(back).addEventListener('click', function () {
         removeCurrentPageToStack();
@@ -573,15 +521,6 @@
             groups.push(team);
           }
 
-          // let string = '';
-          // for (let i = 0; i < groups.length; i++) {
-          //   if (i != groups.length - 1) {
-          //     string += groups[i] + ' | ';
-          //   } else {
-          //     string += groups[i];
-          //   }
-          // }
-          // document.getElementById('randomOrGroup').innerHTML = string;
           postMessage({ action: 'group', value: JSON.stringify(groups) });
         }
         closeModal();
