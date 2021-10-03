@@ -6,13 +6,13 @@ export async function TimerNotification(value: string) {
     value: newValue,
   });
   var interval = setInterval(function () {
-    if (newValue - 5 > 0) {
-      newValue -= 5;
+    if (newValue - 9 > 0) {
+      newValue -= 9;
     } else {
       clearInterval(interval);
     }
     NotificationCenter.showIframe(require('../templates/timer.html').default, {
       value: newValue,
     });
-  }, 5000);
+  }, 9000);
 }
