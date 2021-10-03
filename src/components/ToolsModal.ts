@@ -19,25 +19,30 @@ export async function ToolsModal() {
       size: 'normal',
       onMessage: ({ action, value }: any) => {
         PublishMessage(action, value);
+        let result: string[] = JSON.parse(value);
         if (action == 'random') {
           setTimeout(function () {
             let html = '<div>';
-            for (let i = 0; i < value.length; i++) {
-              html += '<div>' + value[i] + '</div>';
+            for (let i = 0; i < result.length; i++) {
+              html += '<div>' + result[i] + '</div>';
             }
             html += '</div>';
-            ChatBroadcast('Random Picker Picked: ', html);
+            if (result.length == 1) {
+              ChatBroadcast('The chosen one is: ', html);
+            } else {
+              ChatBroadcast('The chosen ones are: ', html);
+            }
           }, 3000);
         }
 
         if (action == 'group') {
           setTimeout(function () {
             let html = '<div>';
-            for (let i = 0; i < value.length; i++) {
-              html += '<div> Group ' + (i + 1) + ': ' + value[i] + '</div>';
+            for (let i = 0; i < result.length; i++) {
+              html += '<div> Group ' + (i + 1) + ': ' + result[i] + '</div>';
             }
             html += '</div>';
-            ChatBroadcast('Random Groups: ', html);
+            ChatBroadcast('Groupings: ', html);
           }, 3000);
         }
 

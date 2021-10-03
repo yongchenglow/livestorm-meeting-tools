@@ -105,8 +105,9 @@
     <script type="text/javascript">
       var participants = JSON.parse('{{ value }}');
       // var participants = ['1', '2', '3'];
+      let endWord = participants.length == 1 ? 'person' : 'people';
       document.getElementById('title').innerHTML =
-        'Selecting ' + participants.length + ' random people';
+        'Selecting ' + participants.length + ' ' + endWord;
 
       setTimeout(function () {
         let string = '<div class="margin-top">';
