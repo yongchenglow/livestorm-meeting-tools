@@ -74,7 +74,7 @@ Pick between:
 <keyword>: <commit details>
 ```
 
-keywords should be taken from the commitlint.config.js
+keywords should be taken from the commitlint.config.ts
 
 ## Acknowledgements
 

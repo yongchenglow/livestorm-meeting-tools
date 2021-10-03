@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "moduleResolution": "Node",
-    "declaration": true,
+    "target": "es2020",
+    "module": "commonjs",
     "sourceMap": true,
     "outDir": "./build"
   },
-  "include": [
-    "index.ts"
-  ],
-  "exclude": ["node_modules", "__tests__"]
+  "include": ["index.ts"],
+  "exclude": ["node_modules", "__tests__", "dangerfile.ts"]
 }

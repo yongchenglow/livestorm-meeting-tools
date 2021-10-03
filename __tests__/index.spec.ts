@@ -1,7 +1,10 @@
-import '../index'
+/**
+ * @jest-environment jsdom
+ */
+import "../index";
 
-describe('main', () => {
-  it('works', () => {
-    expect(true).toBe(true)
-  })
-})
+describe("main", () => {
+  it("works", () => {
+    expect(true).toBe(true);
+  });
+});
