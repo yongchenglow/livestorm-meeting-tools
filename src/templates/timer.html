@@ -44,17 +44,36 @@
         startValues: { seconds: secondsTotal },
         precision: 'secondTenths',
       });
+      function parseTime(timeString) {
+        let timeArray = timeString.split(':');
+        let timeShown = '';
+        for (let i = 0; i < timeArray.length; i++) {
+          if (timeArray[i] != '00') {
+            if (i != timeArray.length - 1) {
+              timeShown += timeArray[i] + ':';
+            } else {
+              timeShown += timeArray[i].slice(-1);
+            }
+          }
+        }
+        if (timeShown.slice(-1) == ':') {
+          timeShown += '0';
+        }
+        return timeShown;
+      }
       $('#countdownExample .values').html(
-        countDownTimer
-          .getTimeValues()
-          .toString(['hours', 'minutes', 'seconds', 'secondTenths']),
-      );
-      countDownTimer.addEventListener('secondTenthsUpdated', function (e) {
-        $('#countdownExample .values').html(
+        parseTime(
           countDownTimer
             .getTimeValues()
             .toString(['hours', 'minutes', 'seconds', 'secondTenths']),
-        );
+        ),
+      );
+      countDownTimer.addEventListener('secondTenthsUpdated', function (e) {
+        let time = countDownTimer
+          .getTimeValues()
+          .toString(['hours', 'minutes', 'seconds', 'secondTenths']);
+
+        $('#countdownExample .values').html(parseTime(time));
       });
       countDownTimer.addEventListener('targetAchieved', function (e) {
         $('#countdownExample .values').html('Times Up!!!');
